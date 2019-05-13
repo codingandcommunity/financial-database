@@ -7,7 +7,7 @@ The financial database will allow fututre treasurers to easily view and query tr
 
 ## Database Structure
 
--- image goes here --
+![Database Structure](/images/database-diagram.jpg)
 
 The system consists of four innterconnected sections. ERDs and further details on each database can be found in their respective folders.
 
