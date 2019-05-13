@@ -22,7 +22,7 @@ Contains a record of all club accounts.
 * **acct_number** : a unique three-digit number associated with an account
 * **balance** : current account balance
 * **balCode** : CR (Credit balance), DR (Debit balance)
-* **subCode** : SUB (Subsidiary), NSUB (Non-Subsidiary)
+* **subCode** : AP (Accounts Payable), AR (Accounts Receivable), C (Cash), X (None)
 
 ### transfer
 
