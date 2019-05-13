@@ -22,7 +22,7 @@ Contains accounts for all vendors previously ordered from.
 
 Contains an account for all parties owning the club any money.
 
-## Tables and Attributes
+## Tables & Attributes
 
 ### chart_of_accounts
 
