@@ -2,9 +2,6 @@
 -- GENERAL JOURNAL SCHEMA
 --
 
-DROP TABLE IF EXISTS entry CASCADE;
-DROP TABLE IF EXISTS transaction CASCADE;
-
 --
 -- Name: entry
 -- Relation: entry(ID, date, total)
@@ -12,37 +9,42 @@ DROP TABLE IF EXISTS transaction CASCADE;
 -- FD(s): ID -> date, total
 --
 -- Attributes:
--- ID - user defined ID describing the reason for the entry
+-- ID - user defined ID
 -- date - date of the entry
 -- total - entry amount in USD
 --
 CREATE TABLE entry (
-  ID VARCHAR(127) PRIMARY KEY,
-  date DATE,
-  total FLOAT CHECK (total > 0)
+  ID VARCHAR(63) NOT NULL,
+  date DATE NOT NULL,
+  total FLOAT NOT NULL,
+
+  CONSTRAINT pk_entry PRIMARY KEY(ID),
+
+  CONSTRAINT chk_total CHECK (total > 0)
 );
 
 --
--- Name: transaction
--- Relation: transaction(entry_id, amount, PR)
--- Keys: entry_id
--- FD(s): entry_id -> amount, PR
+-- Name: transfer
+-- Relation: transfer(entry_id, amount, PR, code)
+-- Keys: None
+-- FD(s): None
 --
 -- Attributes:
--- entry_id - ID describing which entry the transaction belongs to
--- amount - transaction amount in USD
+-- entry_id - ID describing which entry the transfer belongs to
+-- amount - transfer amount in USD
 -- PR - account debited or credited in general ledger
 -- code - DR (debit), CR (credit)
 --
-CREATE TABLE transaction (
-  entry_id VARCHAR(127),
-  amount FLOAT CHECK (amount > 0),
-  PR VARCHAR(3),
-  code VARCHAR(2)
+CREATE TABLE transfer (
+  entry_id VARCHAR(127) NOT NULL,
+  amount FLOAT NOT NULL,
+  PR VARCHAR(3) NOT NULL,
+  code VARCHAR(2) NOT NULL,
+
+  CONSTRAINT fk_entry_id FOREIGN KEY (entry_id) REFERENCES entry(ID),
+
+  CONSTRAINT chk_amount CHECK (amount > 0),
+  CONSTRAINT chk_PR CHECK (PR > 0 AND PR < 1000),
+  CONSTRAINT chk_code CHECK (code = "CR" OR code = "DR")
 );
 
-ALTER TABLE transaction
-  ADD CONSTRAINT belongs_to_entry_fk FOREIGN KEY
-  (entry_id) REFERENCES entry(ID)
-  ON UPDATE CASCADE
-  ON DELETE SET NULL;
