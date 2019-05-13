@@ -2,6 +2,10 @@
 
 All transactions are **required** to be recorded to the general journal before posting to the general ledger and subsequent subsidiary ledgders if needed.
 
+## ER Diagram
+
+![General Journal ERD](/images/general-journal-erd.jpg)
+
 ## Requirements
 
 1. Amount is in US Dollars.
@@ -11,6 +15,4 @@ All transactions are **required** to be recorded to the general journal before p
 
 Checks will be in place during data loading to ensure all requirements are met before recording a journal entry. Members can read more about requirements for journal entries in the coding&&community financial handbook.
 
-## ER Diagram
 
--- image goes here --
