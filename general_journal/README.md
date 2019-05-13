@@ -14,9 +14,9 @@ Records the total debited and credited account transfers from a single transacti
 
 #### Attributes
 
-* ID : a unique treasurer defined ID for the entry. This ID can be arbitrary but must be unique
-* date : date of the entry
-* amount : records the initial amount of the entry in USD
+* **ID** : a unique treasurer defined ID for the entry. This ID can be arbitrary but must be unique
+* **date** : date of the entry
+* **amount** : records the initial amount of the entry in USD
 
 ### transfer
 
@@ -24,11 +24,38 @@ A debit or credit amount from a specified account, belongs to a certain entry. E
 
 #### Attributes
 
-* entry_id : the unique ID for the entry the transfer belongs
-* amount : amount debited or credited
-* PR : account number
-* code : DR (debit), or CR (credit)
+* **entry_id** : the unique ID for the entry the transfer belongs
+* **amount** : amount debited or credited
+* **PR** : account number
+* **code** : DR (debit), or CR (credit)
 
+## Example
+
+Date | Account | PR | Debit | Credit |
+---- | ------- | -- | ----- | ------ |
+Jan. 1, 2010 | Cash | 102 | $28| 
+ -- | Supplies | 263 | --  | $28
+
+### entry
+
+**ID**: SUPSALE01 <br>
+**date**: 2010-01-01 <br>
+**amount**: 28.00 <br>
+
+### transfer
+
+1. 
+  **entry_id**: SUPSALE01 <br>
+  **amount**: 28.00 <br>
+  **PR**: 102 <br>
+  **code**: DR <br>
+  
+ 2. 
+  **entry_id**: SUPSALE01 <br>
+  **amount**: 28.00 <br>
+  **PR**: 263 <br>
+  **code**: CR <br>
+ 
 ## Requirements
 
 1. Amount is in US Dollars.
