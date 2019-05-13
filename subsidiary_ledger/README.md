@@ -6,7 +6,7 @@ All subsidiary ledger databases have the same general format.
 
 ## ER Diagram
 
--- image goes here --
+![Subsidiary Ledger ERD](/images/sub-ledger-erd.jpg)
 
 ## Avaliable Ledgers
 
