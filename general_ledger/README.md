@@ -1,3 +1,34 @@
 # General Ledger
 
-Records and tracks debits and credits of all accounts.
+Contains a record of all club accounts.
+
+## ER Diagram
+
+-- image goes here --
+
+## Tables & Attributes
+
+### chart_of_accounts
+
+#### Attributes
+
+* **acct_number** : a unique three-digit number associated with an account
+* **name** : name of the account
+
+### account
+
+#### Attributes
+
+* **acct_number** : a unique three-digit number associated with an account
+* **balance** : current account balance
+* **balCode** : CR (Credit balance), DR (Debit balance)
+* **subCode** : SUB (Subsidiary), NSUB (Non-Subsidiary)
+
+### transfer
+
+#### Attributes
+
+* **acct_number** : a unique three-digit number associated with an account
+* **date** : date of transfer
+* **amount** : transfer amount
+* **PR** : account number for subsidiary ledger chart
