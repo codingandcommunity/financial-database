@@ -4,7 +4,7 @@ Contains a record of all club accounts.
 
 ## ER Diagram
 
--- image goes here --
+![General Ledger ERD](/images/general-ledger-erd.jpg)
 
 ## Tables & Attributes
 
