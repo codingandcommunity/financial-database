@@ -19,7 +19,6 @@ CREATE TABLE entry (
   total FLOAT NOT NULL,
 
   CONSTRAINT pk_entry PRIMARY KEY(ID),
-
   CONSTRAINT chk_total CHECK (total > 0)
 );
 
@@ -38,13 +37,12 @@ CREATE TABLE entry (
 CREATE TABLE transfer (
   entry_id VARCHAR(127) NOT NULL,
   amount FLOAT NOT NULL,
-  PR VARCHAR(3) NOT NULL,
+  PR INT NOT NULL,
   code VARCHAR(2) NOT NULL,
 
   CONSTRAINT fk_entry_id FOREIGN KEY (entry_id) REFERENCES entry(ID),
 
   CONSTRAINT chk_amount CHECK (amount > 0),
   CONSTRAINT chk_PR CHECK (PR > 0 AND PR < 1000),
-  CONSTRAINT chk_code CHECK (code = "CR" OR code = "DR")
+  CONSTRAINT chk_code CHECK (code = 'CR' OR code = 'DR')
 );
-
