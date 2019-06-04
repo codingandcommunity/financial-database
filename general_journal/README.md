@@ -16,7 +16,7 @@ Records the total debited and credited account transfers from a single transacti
 
 * **ID** : a unique treasurer defined ID for the entry. This ID can be arbitrary but must be unique
 * **date** : date of the entry
-* **amount** : records the initial amount of the entry in USD
+* **total** : records the initial amount of the entry in USD
 
 ### transfer
 
@@ -38,20 +38,20 @@ Jan. 1, 2010 | Cash | 102 | $28|
 
 ### entry
 
-**ID**: SUPSALE01 <br>
+**ID**: 23 <br>
 **date**: 2010-01-01 <br>
 **amount**: 28.00 <br>
 
 ### transfer
 
 1. 
-  **entry_id**: SUPSALE01 <br>
+  **entry_id**: 23 <br>
   **amount**: 28.00 <br>
   **PR**: 102 <br>
   **code**: DR <br>
   
  2. 
-  **entry_id**: SUPSALE01 <br>
+  **entry_id**: 23 <br>
   **amount**: 28.00 <br>
   **PR**: 263 <br>
   **code**: CR <br>
